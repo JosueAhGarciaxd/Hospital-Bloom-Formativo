@@ -14,12 +14,12 @@
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="josuehernandez.ethanhenriquez.hospitalbloomformativo.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
+        android:label="lbPacientes"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="josuehernandez.ethanhenriquez.hospitalbloomformativo.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
+        android:label="lb_Registro"
         tools:layout="@layout/fragment_notifications" />
 </navigation>
