@@ -4,13 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.findViewTreeViewModelStoreOwner
+import josuehernandez.ethanhenriquez.hospitalbloomformativo.R
 import josuehernandez.ethanhenriquez.hospitalbloomformativo.databinding.FragmentDashboardBinding
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import modelo.ClaseConexion
 import java.util.UUID
 
@@ -37,12 +41,13 @@ class DashboardFragment : Fragment() {
         //ESTOOOO NO ME ACUERDO DONDE VA
 
         //1-Mandamos a llamar a todos los datos
-        val txtnombrePaciente = findViewById<EditText>(R.id.txtnombrePaciente)
-        val txtapellidoPaciente = findViewById<EditText>(R.id.txtapellidoPaciente)
-        val txtenfermedadPaciente = findViewById<EditText>(R.id.txtenfermedadPaciente)
-        val txtedadPaciente = findViewById<EditText>(R.id.txtedadPaciente)
-        val txtnumHabitacion = findViewById<EditText>(R.id.txtnumHabitacion)
-        val txtnumCama = findViewById<EditText>(R.id.txtnumCama)
+        val txtnombrePaciente = root.findViewById<EditText>(R.id.txtnombrePaciente)
+        val txtapellidoPaciente = root.findViewById<EditText>(R.id.txtapellidoPaciente)
+        val txtenfermedadPaciente = root.findViewById<EditText>(R.id.txtenfermedadPaciente)
+        val txtedadPaciente = root.findViewById<EditText>(R.id.txtedadPaciente)
+        val txtnumHabitacion = root.findViewById<EditText>(R.id.txtnumHabitacion)
+        val txtnumCama = root.findViewById<EditText>(R.id.txtnumCama)
+        val btnagregar = root.findViewById<Button>(R.id.btnagregar)
 
         //2-Programamos los botones
         btnagregar.setOnClickListener {
