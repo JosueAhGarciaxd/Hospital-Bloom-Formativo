@@ -68,11 +68,6 @@ class DashboardFragment : Fragment() {
             }
             return listadoEnfermedades
         }
-
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
-        }
-        return root
-
         fun obtenerMedicamento(): List<Medicamento>{
             val objConexion = ClaseConexion().cadenaConexion()
 
@@ -91,6 +86,12 @@ class DashboardFragment : Fragment() {
             }
             return listadoMedicamento
         }
+
+
+        dashboardViewModel.text.observe(viewLifecycleOwner) {
+        }
+        return root
+
 
     }
 
