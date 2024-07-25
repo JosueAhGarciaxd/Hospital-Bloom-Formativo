@@ -4,8 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import josuehernandez.ethanhenriquez.hospitalbloomformativo.R
+import modelo.Paciente
 
-class Adaptador(var Datos: List<Doctores>): RecyclerView.Adapter<ViewHolder>() {
+class Adaptador(var Datos: List<Paciente>): RecyclerView.Adapter<ViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -19,7 +20,8 @@ class Adaptador(var Datos: List<Doctores>): RecyclerView.Adapter<ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         //Controlar la card
         val item = Datos[position]
-        holder.txtNombreCard.text = item.Nombre
+        holder.txtNombreCard.text =item.nombre
+        holder.txtApellidoapellid.text = item.apellido
     }
 
 
