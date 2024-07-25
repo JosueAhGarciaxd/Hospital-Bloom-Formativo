@@ -43,28 +43,28 @@ class DashboardFragment : Fragment() {
         //1-Mandamos a llamar a todos los datos
         val txtnombrePaciente = root.findViewById<EditText>(R.id.txtnombrePaciente)
         val txtapellidoPaciente = root.findViewById<EditText>(R.id.txtapellidoPaciente)
-        val txtenfermedadPaciente = root.findViewById<EditText>(R.id.txtenfermedadPaciente)
+        val txtfechaingreso = root.findViewById<EditText>(R.id.txtFechaIngreso)
         val txtedadPaciente = root.findViewById<EditText>(R.id.txtedadPaciente)
         val txtnumHabitacion = root.findViewById<EditText>(R.id.txtnumHabitacion)
         val txtnumCama = root.findViewById<EditText>(R.id.txtnumCama)
         val btnagregar = root.findViewById<Button>(R.id.btnagregar)
 
-        //2-Programamos los botones
-        btnagregar.setOnClickListener {
-         CoroutineScope(Dispatchers.IO).launch {
-              //1- Creamos un objeto de la base Conexion
-              val objConexion = ClaseConexion.cadenaConexion()
-              //2- Creamos la varobale que contenaga un preparestatement
-              val Pacientes = objConexion?.prepareStatement("insert into Pacientes (uuid, Nombres, Apellido, Edad, Enfermedad, NumeroHabitacion, NumeroCama, MedicamentoaAsignados, HoraAplicacionMedicamentos) values (?,?,?,?,?,?,?,?,? )")
-             Pacientes.setString(1, UUID.randomUUID().toString())
-             Pacientes.setString(2, txtnombrePaciente.text.toString())
-             Pacientes.setString(3, txtapellidoPaciente.text.toString())
-             Pacientes.setString(4, txtedadPaciente.text.toString())
-             Pacientes.setString(5, txtenfermedadPaciente.text.toString())
-             Pacientes.setString(6, txtnumHabitacion.text.toString())
-             Pacientes.setString(7, txtnumCama.text.toString())
-             Pacientes.executeUpdate()
-         }
+        fun obtenerEnfermedades(): List<tbEnfermedad>{
+            val objConexion = ClaseConexion().cadenaConexion()
+
+            val statement = objConexion?.createStatement()
+            val resultSet = statement?.executeQuery("SELECT * FROM tbEnfermedad")!!
+
+            val listadoEnfermedades = mutableListOf<tbEnfermedad>()
+
+            while (resultSet.next()){
+                val idEnfermedad = resultSet.getInt("idEnfermedad")
+                val nombreEnfermedad = resultSet.getString("nombreEnfermedad")
+
+                val enfermedadCompleta = tbEnfermedad(idEnfermedad, nombreEnfermedad)
+                listadoEnfermedades.add(enfermedadCompleta)
+            }
+            return listadoEnfermedades
         }
 
         dashboardViewModel.text.observe(viewLifecycleOwner) {
