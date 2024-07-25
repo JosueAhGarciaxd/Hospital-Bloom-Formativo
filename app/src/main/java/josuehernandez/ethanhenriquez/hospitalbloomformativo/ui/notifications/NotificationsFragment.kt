@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import josuehernandez.ethanhenriquez.hospitalbloomformativo.R
 import josuehernandez.ethanhenriquez.hospitalbloomformativo.databinding.FragmentNotificationsBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -43,7 +44,7 @@ class NotificationsFragment : Fragment() {
         }
 
         val spPaciente = root.findViewById<Spinner>(R.id. spPaciente)
-        val rcvPaciente = root.findViewById<RecyclerView>(R.id.rcvPacientes)
+        val rcvPaciente = root.findViewById<RecyclerView>(R.id.rcvPaciente)
         rcvPaciente.layoutManager = LinearLayoutManager(requireContext())
 
 
@@ -51,7 +52,7 @@ class NotificationsFragment : Fragment() {
 
             val objConexion = ClaseConexion().cadenaConexion()
             val statement = objConexion?.createStatement()
-            val resultSet = statement?.executeQuery("select * from tbPaciente")!!
+            val resultSet = statement?.executeQuery("select * from Paciente")!!
 
             val listadoPaciente = mutableListOf<Paciente>()
             while (resultSet.next()){

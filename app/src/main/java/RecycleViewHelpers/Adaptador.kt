@@ -21,7 +21,14 @@ class Adaptador(var Datos: List<Paciente>): RecyclerView.Adapter<ViewHolder>() {
         //Controlar la card
         val item = Datos[position]
         holder.txtNombreCard.text =item.nombre
-        holder.txtApellidoapellid.text = item.apellido
+        holder.txtcarape.text = item.apellido
+        holder.txtaardedad.text = item.edad
+        holder.txtcardnumh.text = item.numHabitacion
+        holder.txtcardnumcam.text = item.numCama
+        holder.txtcardfecha.text = item.fechaIngreso
+        holder.txtcardenfermedad.text = item.enfermedad
+        holder.txtcardmedicamento.text = item.medicamento
+
     }
 
 
