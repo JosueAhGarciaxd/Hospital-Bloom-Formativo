@@ -19,12 +19,12 @@
 
 
         <TextView
-            android:id="@+id/txtcardnom"
+            android:id="@+id/txtCardNombre"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:text="Nombre"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/txtcarape"
+            app:layout_constraintBottom_toTopOf="@+id/txtcardApellido"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -54,51 +54,51 @@
             app:srcCompat="@drawable/baseline_delete_24" />
 
         <TextView
-            android:id="@+id/txtcarape"
+            android:id="@+id/txtcardApellido"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:text="Apellido"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/txtaardedad"
+            app:layout_constraintBottom_toTopOf="@+id/txtcardedad"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtcardnom" />
+            app:layout_constraintTop_toBottomOf="@+id/txtCardNombre" />
 
         <TextView
-            android:id="@+id/txtaardedad"
+            android:id="@+id/txtcardedad"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:text="Edad"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/txtcardnumh"
+            app:layout_constraintBottom_toTopOf="@+id/txtcardNumH"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtcarape" />
+            app:layout_constraintTop_toBottomOf="@+id/txtcardApellido" />
 
         <TextView
-            android:id="@+id/txtcardnumh"
+            android:id="@+id/txtcardNumH"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:text="Numero de Habitacion"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/txtcardnumcam"
+            app:layout_constraintBottom_toTopOf="@+id/txtcardNumcama"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtaardedad" />
+            app:layout_constraintTop_toBottomOf="@+id/txtcardedad" />
 
         <TextView
-            android:id="@+id/txtcardnumcam"
+            android:id="@+id/txtcardNumcama"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:text="Numero de cama"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/txtcardfecha"
+            app:layout_constraintBottom_toTopOf="@+id/txtcardFechaIngreso"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtcardnumh" />
+            app:layout_constraintTop_toBottomOf="@+id/txtcardNumH" />
 
         <TextView
-            android:id="@+id/txtcardfecha"
+            android:id="@+id/txtcardFechaIngreso"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:text="Fecha de Ingreso"
@@ -106,7 +106,7 @@
             app:layout_constraintBottom_toTopOf="@+id/txtcardenfermedad"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtcardnumcam" />
+            app:layout_constraintTop_toBottomOf="@+id/txtcardNumcama" />
 
         <TextView
             android:id="@+id/txtcardenfermedad"
@@ -120,10 +120,10 @@
             app:layout_constraintBottom_toTopOf="@+id/btnEliminar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtcardfecha" />
+            app:layout_constraintTop_toBottomOf="@+id/txtcardFechaIngreso" />
 
         <TextView
-            android:id="@+id/txtcardmedicamento"
+            android:id="@+id/txtcarMedicamento"
             android:layout_width="0dp"
             android:layout_height="53dp"
             android:layout_marginTop="49dp"
