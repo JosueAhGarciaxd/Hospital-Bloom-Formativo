@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import josuehernandez.ethanhenriquez.hospitalbloomformativo.R
-import modelo.Doctores
 
 class Adaptador(var Datos: List<Doctores>): RecyclerView.Adapter<ViewHolder>() {
 

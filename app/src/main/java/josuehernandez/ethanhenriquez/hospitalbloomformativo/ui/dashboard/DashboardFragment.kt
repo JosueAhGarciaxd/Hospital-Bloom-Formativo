@@ -16,6 +16,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import modelo.ClaseConexion
+import modelo.Enfermedad
+import modelo.Medicamento
 import java.util.UUID
 
 class DashboardFragment : Fragment() {
@@ -49,19 +51,19 @@ class DashboardFragment : Fragment() {
         val txtnumCama = root.findViewById<EditText>(R.id.txtnumCama)
         val btnagregar = root.findViewById<Button>(R.id.btnagregar)
 
-        fun obtenerEnfermedades(): List<tbEnfermedad>{
+        fun obtenerEnfermedades(): List<Enfermedad>{
             val objConexion = ClaseConexion().cadenaConexion()
 
             val statement = objConexion?.createStatement()
             val resultSet = statement?.executeQuery("SELECT * FROM tbEnfermedad")!!
 
-            val listadoEnfermedades = mutableListOf<tbEnfermedad>()
+            val listadoEnfermedades = mutableListOf<Enfermedad>()
 
             while (resultSet.next()){
                 val idEnfermedad = resultSet.getInt("idEnfermedad")
                 val nombreEnfermedad = resultSet.getString("nombreEnfermedad")
 
-                val enfermedadCompleta = tbEnfermedad(idEnfermedad, nombreEnfermedad)
+                val enfermedadCompleta = Enfermedad(idEnfermedad, nombreEnfermedad)
                 listadoEnfermedades.add(enfermedadCompleta)
             }
             return listadoEnfermedades
@@ -71,6 +73,24 @@ class DashboardFragment : Fragment() {
         }
         return root
 
+        fun obtenerMedicamento(): List<Medicamento>{
+            val objConexion = ClaseConexion().cadenaConexion()
+
+            val statement = objConexion?.createStatement()
+            val resultSet = statement?.executeQuery("SELECT * FROM tbMedicamento")!!
+
+            val listadoMedicamento = mutableListOf<Medicamento>()
+
+            while (resultSet.next()){
+                val idMedicamento = resultSet.getInt("idMedicamento")
+                val nombreMedicamento = resultSet.getString("nombreMedicamento")
+                val horaAplicacion = resultSet.getString("horaAplicacion")
+
+                val medicamentoCompleto = Medicamento(idMedicamento, nombreMedicamento, horaAplicacion)
+                listadoMedicamento.add(medicamentoCompleto)
+            }
+            return listadoMedicamento
+        }
 
     }
 
