@@ -4,6 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import josuehernandez.ethanhenriquez.hospitalbloomformativo.R
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import modelo.ClaseConexion
 import modelo.Paciente
 
 class Adaptador(var Datos: List<Paciente>): RecyclerView.Adapter<ViewHolder>() {
@@ -30,6 +34,28 @@ class Adaptador(var Datos: List<Paciente>): RecyclerView.Adapter<ViewHolder>() {
         holder.txtcardmedicamento.text = item.medicamento
 
     }
+
+    fun paraEliminar(nombre: String, position: Int){
+        val ListaDatos = Datos.toMutableList()
+        ListaDatos.removeAt(position)
+
+        GlobalScope.launch(Dispatchers.IO){
+            val objConexion = ClaseConexion().cadenaConexion()
+
+            //variable con el PrepareStatement
+            val deletePaciente = objConexion?.prepareStatement("delete from Paciente where nombre = ?")!!
+            deletePaciente.setString(1, nombre)
+            deletePaciente.executeUpdate()
+
+            val commit = objConexion.prepareStatement("commit")
+            commit.executeUpdate()
+        }
+
+        Datos = ListaDatos.toList()
+        notifyItemRemoved(position)
+        notifyDataSetChanged()
+    }
+
 
 
 }
