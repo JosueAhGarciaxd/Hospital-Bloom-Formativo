@@ -20,9 +20,9 @@ class Adaptador(var Datos: List<Paciente>): RecyclerView.Adapter<ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         //Controlar la card
         val item = Datos[position]
-        holder.txtNombreCard.text =item.nombre
-        holder.txtcarape.text = item.apellido
-        holder.txtaardedad.text = item.edad
+        holder.txtcardnom.text =item.nombre
+        holder.txtApellidoCard.text = item.apellido
+        holder.txtaedadCard.text = item.edad
         holder.txtcardnumh.text = item.numHabitacion
         holder.txtcardnumcam.text = item.numCama
         holder.txtcardfecha.text = item.fechaIngreso

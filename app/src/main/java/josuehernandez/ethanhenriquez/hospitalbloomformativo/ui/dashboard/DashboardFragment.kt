@@ -91,8 +91,6 @@ class DashboardFragment : Fragment() {
         dashboardViewModel.text.observe(viewLifecycleOwner) {
         }
         return root
-
-
     }
 
     override fun onDestroyView() {
