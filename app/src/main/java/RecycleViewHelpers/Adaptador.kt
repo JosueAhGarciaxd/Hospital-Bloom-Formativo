@@ -2,6 +2,7 @@ package RecycleViewHelpers
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import josuehernandez.ethanhenriquez.hospitalbloomformativo.R
 import modelo.Paciente
@@ -19,17 +20,17 @@ class Adaptador(var Datos: List<Paciente>): RecyclerView.Adapter<ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         //Controlar la card
-        val item = Datos[position]
-        holder.txtNombreCard.text =item.nombre
-        holder.txtcarape.text = item.apellido
-        holder.txtaardedad.text = item.edad
-        holder.txtcardnumh.text = item.numHabitacion
-        holder.txtcardnumcam.text = item.numCama
-        holder.txtcardfecha.text = item.fechaIngreso
-        holder.txtcardenfermedad.text = item.enfermedad
-        holder.txtcardmedicamento.text = item.medicamento
+        val paciente = Datos[position]
+        holder.txtCardNombre.text = paciente.nombre
+        holder.txtcardApellido.text = paciente.apellido
+        holder.txtcardedad.text = paciente.edad.toString()
+        holder.txtcardNumH.text = paciente.numHabitacion.toString()
+        holder.txtcardNumcama.text = paciente.numCama.toString()
+        holder.txtcardFechaIngreso.text = paciente.fechaIngreso
+        holder.txtcardenfermedad.text = paciente.enfermedad.toString()
+        holder.txtcarMedicamento.text = paciente.medicamento.toString()
+
 
     }
-
 
 }
