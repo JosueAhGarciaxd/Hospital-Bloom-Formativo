@@ -22,12 +22,12 @@ class Adaptador(var Datos: List<Paciente>): RecyclerView.Adapter<ViewHolder>() {
         val item = Datos[position]
         holder.txtCardNombre.text =item.nombre
         holder.txtcardApellido.text = item.apellido
-        holder.txtcardedad.text = item.edad
-        holder.txtcardNumH.text = item.numHabitacion
-        holder.txtcardNumcama.text = item.numCama
+        holder.txtcardedad.text = item.edad.toString()
+        holder.txtcardNumH.text = item.numHabitacion.toString()
+        holder.txtcardNumcama.text = item.numCama.toString()
         holder.txtcardFechaIngreso.text = item.fechaIngreso
-        holder.txtcardenfermedad.text = item.enfermedad
-        holder.txtcarMedicamento.text = item.medicamento
+        holder.txtcardenfermedad.text = item.enfermedad.toString()
+        holder.txtcarMedicamento.text = item.medicamento.toString()
 
     }
 
